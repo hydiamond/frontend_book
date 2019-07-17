@@ -181,7 +181,7 @@ export const setSortType = (sortType) => async (dispatch, getState) => {
             sortorder: sortorder,
             searchtext: getState,
             id: getState().homeReducers.book.id,
-            searchtext: undefined
+            //searchtext: undefined
         })
     }
     catch (err) {

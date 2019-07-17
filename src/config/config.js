@@ -2,6 +2,18 @@ import cookies from 'browser-cookies';
 
 class Config {
 
+    clearToken() {
+        localStorage.removeItem('token');
+        return cookies.erase('ac_token', {domain: process.env.SUB_DOMAIN});
+    }
+
+    storeToken(token) {
+        return cookies.set('ac_token', token, {
+            domain : process.env.SUB_DOMAIN,
+            expires: 30
+        });
+    }
+
     clearProfile() {
         localStorage.removeItem('profile');
         return cookies.erase('profile', {domain: process.env.SUB_DOMAIN});
@@ -16,7 +28,11 @@ class Config {
 
 
     getToken() {
-
+        if (!cookies.get('token') && localStorage.getItem('token')) {
+            this.storeToken(localStorage.getItem('token'));
+            localStorage.removeItem('token');
+        }
+        return cookies.get('ac_token');
     }
 
 
