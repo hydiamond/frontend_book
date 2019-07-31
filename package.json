@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "bootstrap": "^4.3.1",
     "browser-cookies": "^1.2.0",
     "lodash": "^4.17.10",
+    "prop-types": "^15.7.2",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.0",
